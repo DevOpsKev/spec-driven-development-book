@@ -112,6 +112,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Distinction:** Prompt engineering optimizes human-LLM interaction; context engineering optimizes agent-LLM interaction.
 
 **Includes:**
+
 - Spec structure (context compression)
 - System prompts (AGENTS.md, Cursor rules)
 - MCP servers and knowledge bases
@@ -128,6 +129,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** The code output produced by an agent from a specification.
 
 **Properties:**
+
 - Non-deterministic (same spec may yield different code)
 - Should be validated against spec
 - Regenerable from spec
@@ -143,6 +145,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** The end-to-end process from specification to validated code.
 
 **Steps:**
+
 1. Prepare spec and context
 2. Invoke agent
 3. Receive output
@@ -160,6 +163,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** Systematic verification that generated code meets the specification.
 
 **Methods:**
+
 - Acceptance criteria checking
 - Contract tests
 - Schema validation
@@ -195,6 +199,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** Mechanisms for identifying divergence between specification and implementation.
 
 **Methods:**
+
 - Schema validation
 - Contract testing
 - Payload inspection
@@ -228,6 +233,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** Treating specifications with the same operational rigor as source code.
 
 **Practices:**
+
 - Version control
 - Branching strategies
 - Code review for specs
@@ -247,6 +253,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Rationale:** Code generation is non-deterministic; validation must be deterministic to ensure quality.
 
 **Includes:**
+
 - Contract tests in pipelines
 - Schema validation gates
 - Architectural fitness functions
@@ -277,6 +284,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** Explicit approval boundaries within which machines can act; breaking changes require human authorization.
 
 **Examples of approval gates:**
+
 - Breaking schema changes
 - Policy shifts
 - Compatibility downgrades
@@ -293,6 +301,7 @@ This is the authoritative source for all SDD terminology. Reference this documen
 **Definition:** Systematic approach to evolving specifications without breaking dependent systems.
 
 **Includes:**
+
 - Change classification (additive, compatible, breaking, ambiguous)
 - Compatibility policies
 - Parallel version surfaces

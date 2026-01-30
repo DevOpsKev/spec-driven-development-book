@@ -11,12 +11,14 @@ Follow these rules precisely.
 SDD is an emerging practice. You are helping define it, not summarizing established consensus.
 
 **Key framing:**
+
 - The core thesis: "The specification is the artifact. Code is a side effect."
 - SDD inverts traditional development: invest in specs, treat generated code as first drafts
 - This is a methodology, not prompt engineering tips
 - Readers are experienced developers frustrated by ad-hoc AI tool usage
 
 **Avoid:**
+
 - AI hype, breathless enthusiasm, or "transformative" language
 - Treating this as established/obvious—acknowledge you're defining the practice
 - Tool-specific instructions that won't age well—teach transferable principles
@@ -28,11 +30,13 @@ SDD is an emerging practice. You are helping define it, not summarizing establis
 Write as a confident practitioner. Direct, grounded, practical.
 
 **Do:**
+
 - State things directly without hedging
 - Use "you" for the reader, "we" for shared professional experience
 - Be specific—concrete examples, real numbers, actual scenarios
 
 **Do not:**
+
 - Hedge: "perhaps," "it might be," "arguably," "it could be said"
 - Hype: "revolutionary," "game-changing," "powerful," "exciting"
 - Condescend: "simply," "just," "obviously," "of course," "as you know"
@@ -43,6 +47,7 @@ Write as a confident practitioner. Direct, grounded, practical.
 ## Sentence Construction
 
 **Rules:**
+
 - Lead with the point. State the conclusion, then support it.
 - Vary sentence length. Mix short declarative sentences with longer explanatory ones.
 - One idea per paragraph.
@@ -57,11 +62,13 @@ Write as a confident practitioner. Direct, grounded, practical.
 ## Word Choice
 
 **Prefer:**
+
 - Concrete over abstract
 - Short over long ("use" not "utilize," "help" not "facilitate")
 - Precise technical terms over vague approximations
 
 **Banned words and phrases:**
+
 - "leverage" (use "use")
 - "utilize" (use "use")
 - "facilitate" (use "help," "enable," or "allow")
@@ -107,6 +114,7 @@ When introducing SDD-specific concepts, define them on first use.
 **Section closing:** State the key takeaway or next action. One sentence is sufficient.
 
 **Do not:**
+
 - Open with "In this section, we will discuss..."
 - Close with "In the next section, we will..."
 - Use rhetorical questions as transitions
@@ -127,24 +135,28 @@ Every section has a primary Diátaxis type. Do not mix types within a section.
 **Writing rules by type:**
 
 **Tutorial:**
+
 - Reader does something at each step
 - Instructor responsible for success
 - Minimize explanation (link instead)
 - No decision points—guide completely
 
 **How-to:**
+
 - Assume reader is competent
 - Focus on goal, not learning
 - May include decision points
 - Practical, not theoretical
 
 **Reference:**
+
 - Structured for lookup, not reading
 - Consistent format across entries
 - Complete, accurate, austere
 - No opinions or interpretation
 
 **Explanation:**
+
 - Serve understanding, not action
 - Can be opinionated
 - Connect to broader context
@@ -161,6 +173,7 @@ For full Diátaxis guidelines, see `diataxis-integration.md`.
 Examples are required, not optional. Every abstract concept needs a concrete illustration.
 
 **Example requirements:**
+
 - Realistic—drawn from actual development scenarios
 - Minimal—include only what's necessary to illustrate the point
 - Annotated—explain what's happening and why
@@ -169,6 +182,7 @@ Examples are required, not optional. Every abstract concept needs a concrete ill
 When showing specifications, use code blocks. Annotate with comments or follow with explanation.
 
 **Do not:**
+
 - Use "Acme Corp" or obviously fake company names
 - Create examples that wouldn't occur in real work
 - Show examples without explaining their significance
@@ -205,8 +219,9 @@ Do not produce content that looks like this:
 
 **Bad—listicle structure for explanatory content:**
 > "Why Specifications Matter:
+>
 > - They provide clarity
-> - They reduce ambiguity  
+> - They reduce ambiguity
 > - They improve output quality
 > - They enable iteration"
 

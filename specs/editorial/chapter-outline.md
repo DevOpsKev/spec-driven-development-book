@@ -11,6 +11,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Establish historical context. Position SDD within the evolution of software abstraction.
 
 **Covers:**
+
 - The arc of abstraction: machine code → assembly → high-level languages → frameworks → natural language
 - Each generation elevated what developers focus on (mechanism → intent)
 - AI coding agents as the catalyst for the fifth generation
@@ -27,6 +28,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Establish the pain point. Validate the reader's frustrations. Set up why a methodology is needed.
 
 **Covers:**
+
 - The current state: developers using AI agents ad-hoc
 - Common failure patterns (vague prompts, over-detailed prompts, context loss, unrepeatable success)
 - Why "get better at prompting" is insufficient
@@ -42,6 +44,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Introduce the central thesis and the architectural inversion.
 
 **Covers:**
+
 - "The specification is the artifact. Code is a side effect."
 - The traditional model: code defines truth, architecture is advisory
 - The SDD model: specification defines truth, code is derived
@@ -62,6 +65,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Clarify the distinction that defines SDD. Prevent conflation with prompt engineering.
 
 **Covers:**
+
 - What a prompt is (tactical, conversational, ephemeral)
 - What a specification is (structured, versioned, complete, executable)
 - The spectrum from prompt to spec
@@ -83,6 +87,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Provide the architectural mental model for SDD systems.
 
 **Covers:**
+
 - The five layers: Specification → Generation → Artifact → Validation → Runtime
 - How each layer functions and what it produces
 - The closed control loop: intent shapes execution, execution validates intent
@@ -101,6 +106,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Define the components of an effective specification.
 
 **Covers:**
+
 - Required elements: context, requirements, constraints, acceptance criteria
 - Optional elements: examples, non-goals, references
 - Format considerations (structured text, markdown, schema)
@@ -122,6 +128,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to establish the information environment for the agent.
 
 **Covers:**
+
 - What the agent needs to know vs. what it can infer
 - Project context: architecture, conventions, dependencies
 - Task context: where this fits, what exists already
@@ -138,6 +145,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to curate and manage context for AI agents at scale.
 
 **Covers:**
+
 - Prompt engineering optimizes human-LLM interaction; context engineering optimizes agent-LLM interaction
 - Coding tasks require large amounts of contextual information
 - System prompts: Cursor rules, AGENTS.md, and tool configuration
@@ -158,6 +166,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to express what the code should do.
 
 **Covers:**
+
 - Behavioral requirements vs. implementation requirements
 - Specificity calibration: when to constrain, when to leave open
 - Functional vs. non-functional requirements in specs
@@ -172,6 +181,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to bound what the agent should and shouldn't do.
 
 **Covers:**
+
 - Technical constraints (language, framework, patterns to use/avoid)
 - Scope constraints (what's in/out of this task)
 - Style constraints (naming, structure, conventions)
@@ -186,6 +196,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to define "done" in a way that enables validation.
 
 **Covers:**
+
 - The role of acceptance criteria in the generate-validate loop
 - Writing testable criteria
 - Criteria granularity: too loose vs. too tight
@@ -204,6 +215,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to organize projects for effective agent collaboration.
 
 **Covers:**
+
 - Breaking work into agent-sized units
 - Directory and file organization
 - Where specs live in relation to code
@@ -220,6 +232,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Walk through the end-to-end process of spec to code.
 
 **Covers:**
+
 - Preparing the spec and context
 - Invoking the agent (tool-agnostic framing)
 - Receiving and reviewing output
@@ -237,6 +250,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach systematic approaches to evaluating output and preventing architectural drift.
 
 **Covers:**
+
 - Validation against acceptance criteria
 - Drift: any divergence between declared intent and observed behavior
 - Types of drift: structural, behavioral, semantic, security, evolutionary
@@ -255,6 +269,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to improve output by improving the specification, not tweaking prompts.
 
 **Covers:**
+
 - Common output failures and their causes
 - When to fix code vs. fix the spec
 - Iteration as spec refinement, not prompt adjustment
@@ -271,6 +286,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Integrate SDD with standard development practices and operational discipline.
 
 **Covers:**
+
 - Specs as versioned artifacts (same rigor as source code)
 - Version control: branching, review, merge strategies
 - Co-locating specs with code
@@ -290,6 +306,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Address how traditional CI/CD practices safeguard against generation unpredictability.
 
 **Covers:**
+
 - The problem: code generation from specs isn't deterministic
 - Spec drift and hallucination are inherently difficult to avoid
 - CI/CD as the essential counterweight to non-deterministic generation
@@ -313,6 +330,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Define appropriate scope. Prevent over-application.
 
 **Covers:**
+
 - Tasks where SDD excels (well-defined, bounded, generatable)
 - Tasks where SDD is overkill (trivial changes, exploration)
 - Tasks where SDD struggles (highly novel, requires deep context)
@@ -327,6 +345,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Define where human judgment remains essential in an automated architecture.
 
 **Covers:**
+
 - SDD does not remove humans; it relocates human judgment upward
 - Humans as custodians of: intent, policy, risk tolerance, ethics, meaning
 - What machines own: enforcement, generation, conformance
@@ -344,6 +363,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Catalog common SDD failures and their remedies.
 
 **Covers:**
+
 - Spec failures: ambiguity, incompleteness, contradiction
 - Context failures: too little, too much, wrong scope
 - Workflow failures: skipping validation, over-iterating
@@ -359,6 +379,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Address multi-person workflows and organizational considerations.
 
 **Covers:**
+
 - Specs as communication artifacts
 - Dividing spec-writing and code-validation responsibilities
 - Reviewing specs vs. reviewing code
@@ -376,6 +397,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Extend SDD principles to adjacent activities.
 
 **Covers:**
+
 - Specs for documentation generation
 - Specs for test generation
 - Specs for refactoring and migration
@@ -392,6 +414,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Teach how to evolve specifications without breaking systems.
 
 **Covers:**
+
 - Compatibility as an architectural concern (not just versioning)
 - Classifying changes: additive, compatible, breaking, ambiguous
 - Compatibility policies and enforcement
@@ -410,6 +433,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Address the supply-chain and trust implications of AI-powered generation.
 
 **Covers:**
+
 - Generators as critical infrastructure, not convenience tools
 - Requirements: determinism, reproducibility, auditability
 - Verifiable provenance: which spec produced this code?
@@ -428,6 +452,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Honest assessment of SDD's costs and limitations.
 
 **Covers:**
+
 - Specifications become a primary complexity surface
 - Runtime enforcement has real computational cost
 - The cognitive shift is non-trivial
@@ -445,6 +470,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 **Purpose:** Provide perspective without speculation. Close the book.
 
 **Covers:**
+
 - What will change as agents improve (and what won't)
 - The enduring value of clear thinking about requirements
 - SDD as a foundation, not a final answer
@@ -459,6 +485,7 @@ This document defines the book's structure. Each chapter builds on previous chap
 ### Appendix A: Specification Templates
 
 Reusable templates for common specification types:
+
 - Feature specification
 - Bug fix specification
 - Refactoring specification
@@ -480,7 +507,8 @@ One-page SDD workflow summary. Checklists for spec writing, validation, troubles
 
 **Examples:** Each chapter in Parts 2-5 requires at least one worked example. Coordinate examples across chapters where possible (e.g., a running project that evolves).
 
-**Length guidance:** 
+**Length guidance:**
+
 - Part 1 chapters: shorter (establishing concepts and mental models)
 - Part 2 chapters: medium (teaching core spec-writing skills)
 - Part 3 chapters: medium (workflow and operational practice)
@@ -489,6 +517,7 @@ One-page SDD workflow summary. Checklists for spec writing, validation, troubles
 
 **Cross-references:** Note when a chapter refers back to or sets up another chapter. Track in continuity-tracker.md.
 
-**Key sources:** 
+**Key sources:**
+
 - InfoQ article "Spec Driven Development: When Architecture Becomes Executable" (Griffin & Carroll, Jan 2026) — foundational framing for the five-layer model, architectural inversion, and SpecOps concepts.
 - Thoughtworks article "Spec-driven development: Unpacking one of 2025's key new AI-assisted engineering practices" (Liu Shangqi, Dec 2025) — practical perspective on context engineering, BDD lessons, and CI/CD integration.

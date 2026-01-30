@@ -109,12 +109,14 @@ Diátaxis identifies four types of documentation based on user needs:
 **Purpose:** Help reader acquire competence through doing.
 
 **Structure:**
+
 1. State what the reader will learn/build
 2. Provide step-by-step instructions
 3. Each step produces visible progress
 4. End with working result
 
 **Rules:**
+
 - Reader follows along and does things
 - Instructor is responsible for success
 - Minimize explanation—link to it instead
@@ -124,6 +126,7 @@ Diátaxis identifies four types of documentation based on user needs:
 **Voice:** "Let's build... First, create... Now add..."
 
 **Do not:**
+
 - Explain why (link to explanation instead)
 - Offer choices (make decisions for the reader)
 - Cover edge cases (save for how-to)
@@ -135,12 +138,14 @@ Diátaxis identifies four types of documentation based on user needs:
 **Purpose:** Help reader accomplish a specific goal.
 
 **Structure:**
+
 1. State the goal/problem clearly
 2. List prerequisites (if any)
 3. Provide directions (may branch)
 4. Confirm success
 
 **Rules:**
+
 - Assume reader is competent
 - Focus on the goal, not learning
 - Can include decision points
@@ -150,6 +155,7 @@ Diátaxis identifies four types of documentation based on user needs:
 **Voice:** "To achieve X, do Y. If Z, then..."
 
 **Do not:**
+
 - Teach fundamentals (that's tutorials)
 - Explain background (link to explanation)
 - Include every option (link to reference)
@@ -161,12 +167,14 @@ Diátaxis identifies four types of documentation based on user needs:
 **Purpose:** Provide accurate information for lookup.
 
 **Structure:**
+
 - Consistent format across entries
 - Scannable (tables, lists, headings)
 - Complete within scope
 - No narrative
 
 **Rules:**
+
 - Accurate and precise
 - Structured for lookup, not reading
 - Describe, don't explain
@@ -175,6 +183,7 @@ Diátaxis identifies four types of documentation based on user needs:
 **Voice:** Neutral, factual. "X is Y. Z takes parameters A, B, C."
 
 **Do not:**
+
 - Explain why (that's explanation)
 - Provide steps (that's tutorial/how-to)
 - Editorialize
@@ -186,12 +195,14 @@ Diátaxis identifies four types of documentation based on user needs:
 **Purpose:** Help reader understand concepts deeply.
 
 **Structure:**
+
 - Can be discursive/narrative
 - Connects ideas
 - Provides context and history
 - Answers "why" questions
 
 **Rules:**
+
 - Serve understanding, not action
 - Can be opinionated (author's perspective)
 - Connect to broader context
@@ -200,6 +211,7 @@ Diátaxis identifies four types of documentation based on user needs:
 **Voice:** Reflective, analytical. "The reason for X is... This matters because..."
 
 **Do not:**
+
 - Provide steps (that's tutorial/how-to)
 - Just list facts (that's reference)
 - Assume reader will act immediately
@@ -320,6 +332,7 @@ New to SDD                              Experienced with SDD
 ```
 
 **Book supports multiple entry points:**
+
 - New reader: Start Part 1, follow through
 - Experienced reader with problem: Jump to Part 3-4 how-tos
 - Quick lookup: Appendices

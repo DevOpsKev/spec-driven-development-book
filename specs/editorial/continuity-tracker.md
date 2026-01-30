@@ -96,6 +96,7 @@ Track examples used to ensure consistency and avoid repetition.
 | (No examples logged yet) | | | |
 
 **Example types:**
+
 - Running example (evolves across chapters)
 - Standalone (single chapter use)
 - Code snippet
@@ -114,6 +115,7 @@ Track when content references concepts not yet introduced.
 | (No forward references logged yet) | | | |
 
 **Resolution options:**
+
 - Add brief preview
 - Reorder content
 - Remove reference
@@ -130,6 +132,7 @@ Track when content explicitly references prior material.
 | (No backward references logged yet) | | | |
 
 **Reference types:**
+
 - Concept recall
 - Example continuation
 - Contrast with earlier point

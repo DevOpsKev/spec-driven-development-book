@@ -190,6 +190,7 @@ sdd-book/
 The book assembles in this sequence:
 
 ### Front Matter
+
 | Order | File | Required | Notes |
 |-------|------|----------|-------|
 | 1 | cover.md | Yes | Title, subtitle, author name |
@@ -204,6 +205,7 @@ The book assembles in this sequence:
 | 10 | introduction.md | Yes | Reader setup, how to use book |
 
 ### Body
+
 | Order | Section | Chapters |
 |-------|---------|----------|
 | 11 | Part 1: Foundation | Ch 1–5 |
@@ -214,6 +216,7 @@ The book assembles in this sequence:
 | 16 | Closing | Ch 26 |
 
 ### Back Matter
+
 | Order | File | Required | Notes |
 |-------|------|----------|-------|
 | 17 | appendix-a-specification-templates.md | Yes | Practical templates |
@@ -258,6 +261,7 @@ This ensures correct alphabetical sorting matches reading order.
 ### Phase 1: Specification
 
 **Already complete:**
+
 - [x] book-brief.md
 - [x] writers-guide.md
 - [x] chapter-outline.md
@@ -266,6 +270,7 @@ This ensures correct alphabetical sorting matches reading order.
 - [x] continuity-tracker.md
 
 **Remaining:**
+
 - [ ] chapter-briefs/ (one per chapter)
 - [ ] author-voice.md
 - [ ] examples-library.md
@@ -345,6 +350,7 @@ Create one brief per chapter before generation.
 ### Phase 3: Generation
 
 **Input to agent:**
+
 1. Full specification layer (all spec docs)
 2. Chapter brief for target chapter
 3. Any prior chapters (for continuity)
@@ -437,10 +443,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Install Pandoc
         run: sudo apt-get install -y pandoc
-      
+
       - name: Build EPUB
         run: |
           pandoc \
@@ -452,7 +458,7 @@ jobs:
             -o output/sdd-book.epub \
             content/chapters/*.md \
             content/appendices/*.md
-      
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -479,20 +485,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
         run: pip install elevenlabs markdown-it-py
-      
+
       - name: Generate audio
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: python scripts/generate-audio.py
-      
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -531,20 +537,20 @@ def generate_chapter_audio(chapter_path: Path):
     """Generate audio for a single chapter."""
     md_content = chapter_path.read_text()
     text = markdown_to_text(md_content)
-    
+
     audio = generate(
         text=text,
         voice=VOICE_ID,
         model=MODEL
     )
-    
+
     output_path = OUTPUT_DIR / f"{chapter_path.stem}.mp3"
     save(audio, str(output_path))
     print(f"Generated: {output_path}")
 
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    
+
     for chapter_file in sorted(CHAPTERS_DIR.glob("*.md")):
         generate_chapter_audio(chapter_file)
 
@@ -573,24 +579,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
         run: pip install -r validation/requirements.txt
-      
+
       - name: Check glossary compliance
         run: python validation/check-glossary.py
-      
+
       - name: Check continuity
         run: python validation/check-continuity.py
-      
+
       - name: Check style
         run: python validation/check-style.py
-      
+
       - name: Check structure
         run: python validation/check-structure.py
 ```
@@ -676,7 +682,7 @@ chapter_overrides:
   # Slower pace for foundational chapters
   01-the-fifth-generation:
     stability: 0.6
-  
+
   # Technical chapters may need different handling
   05-the-five-layer-model:
     # Consider splitting by section

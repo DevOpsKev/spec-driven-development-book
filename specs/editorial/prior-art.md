@@ -33,15 +33,18 @@ Reference this document when positioning SDD relative to established practices. 
 | Implementation | Human | AI agent |
 
 **Borrow from TDD:**
+
 - Define expectations before implementation
 - Fast feedback loops
 - Executable specifications concept
 
 **Do not say:**
+
 - "SDD replaces TDD"
 - "You don't need tests with SDD"
 
 **Do say:**
+
 - "Like TDD, SDD defines expectations before implementation"
 - "Generated code still benefits from tests"
 - "SDD and TDD can coexist"
@@ -60,6 +63,7 @@ Reference this document when positioning SDD relative to established practices. 
 | Maintenance | Living documentation | System source of truth |
 
 **Borrow from BDD:**
+
 - Ubiquitous language (domain terms, not implementation terms)
 - Consistent structure (Given/When/Then patterns useful)
 - Spec-by-example (concrete examples = few-shot prompting)
@@ -67,10 +71,12 @@ Reference this document when positioning SDD relative to established practices. 
 - Clarity and determinism
 
 **Do not say:**
+
 - "SDD is just BDD for AI"
 - "Use Cucumber for SDD"
 
 **Do say:**
+
 - "BDD's lessons about spec structure transfer directly"
 - "Spec-by-example in BDD is equivalent to few-shot prompting"
 - "SDD extends BDD's insights to the generation era"
@@ -91,19 +97,23 @@ Reference this document when positioning SDD relative to established practices. 
 | Implementation | Human developers | AI agents |
 
 **Borrow from DDD:**
+
 - Bounded context (term borrowed directly—acknowledge this)
 - Ubiquitous language
 - Model before code
 
 **Key distinction:**
+
 - DDD bounded contexts = semantic (team/domain boundaries)
 - SDD bounded contexts = also pragmatic (context window limits)
 
 **Do not say:**
+
 - "You need to understand DDD to use SDD"
 - Deep DDD concepts (aggregates, entities, repositories) unless specifically relevant
 
 **Do say:**
+
 - "The term 'bounded context' comes from DDD"
 - "Like DDD, SDD emphasizes domain language over technical jargon"
 
@@ -123,14 +133,17 @@ Reference this document when positioning SDD relative to established practices. 
 | Generation type | Deterministic templates | Non-deterministic LLM |
 
 **Borrow from Contract-First:**
+
 - Contract/schema as truth (established precedent)
 - Multi-target generation
 - Versioning and compatibility practices
 
 **Do not say:**
+
 - "SDD is just OpenAPI for everything"
 
 **Do say:**
+
 - "Contract-first for interfaces; SDD extends this to full implementation"
 - "If you've used OpenAPI workflows, SDD will feel familiar"
 
@@ -150,19 +163,23 @@ Reference this document when positioning SDD relative to established practices. 
 | Persistence | Ad-hoc | Systematic |
 
 **Borrow from Prompt Engineering:**
+
 - Structure improves output
 - Few-shot examples help
 - Context matters
 
 **Critical distinction:**
+
 - Prompt engineering = tactical (single requests)
 - SDD = strategic (entire methodology)
 
 **Do not say:**
+
 - "SDD is advanced prompt engineering"
 - "Better prompts = SDD"
 
 **Do say:**
+
 - "Prompt engineering optimizes individual interactions; SDD structures entire workflows"
 - "SDD is what comes after you've mastered prompting"
 - "Prompts are tactical; specifications are strategic"
@@ -184,12 +201,14 @@ Reference this document when positioning SDD relative to established practices. 
 | Feedback loops | Chaotic or none | Structured validation |
 
 **Vibe coding works for:**
+
 - Quick prototypes
 - Exploration
 - Throwaway scripts
 - Low-stakes automation
 
 **Vibe coding fails for:**
+
 - Production systems
 - Maintainable code
 - Team collaboration
@@ -198,10 +217,12 @@ Reference this document when positioning SDD relative to established practices. 
 **SDD relationship:** SDD is the structured alternative to vibe coding.
 
 **Do not say:**
+
 - "Vibe coding is wrong/bad/stupid"
 - Dismissive language about readers' current practices
 
 **Do say:**
+
 - "Vibe coding is fast and fun, but insufficient for serious work"
 - "If you've felt frustrated by inconsistent results from ad-hoc prompting, SDD provides structure"
 - "SDD is what you adopt when vibe coding stops scaling"
@@ -222,25 +243,30 @@ Reference this document when positioning SDD relative to established practices. 
 | Adoption | Failed mainstream | Emerging |
 
 **Borrow from MDD:**
+
 - Model/spec as truth (shared ambition)
 - Generation pipeline concept
 
 **MDD failed because:**
+
 - Steep learning curves
 - Proprietary tool lock-in
 - Rigidity
 - Model-code sync problems (drift)
 
 **SDD must avoid these failures:**
+
 - Keep specs in natural language (no proprietary DSL)
 - Maintain tool-agnosticism
 - Prioritize drift detection
 
 **Do not say:**
+
 - "SDD is like MDD but better"
 - Imply equivalence
 
 **Do say:**
+
 - "MDD had similar ambitions but different approach"
 - "SDD addresses MDD's drift problem with continuous validation"
 - "Unlike MDD, SDD uses natural language—no specialized modeling skills required"
@@ -260,10 +286,12 @@ Reference this document when positioning SDD relative to established practices. 
 | Audience | Human readers | AI agents + humans |
 
 **Borrow from Literate Programming:**
+
 - Inversion of primacy (document over code)
 - Explanation-first forces clarity
 
 **Do not say:**
+
 - Extended comparisons (connection is philosophical, not practical)
 
 **Reference frequency:** Very low. Optional historical note.
@@ -283,16 +311,19 @@ Reference this document when positioning SDD relative to established practices. 
 **Relationship to SDD:** Context engineering is a component of SDD, not a separate practice.
 
 **Context engineering in SDD includes:**
+
 - Specs compress context into structured form
 - Bounded contexts manage agent information
 - System prompts (AGENTS.md, Cursor rules)
 - MCP servers and knowledge bases
 
 **Do not say:**
+
 - "Context engineering vs. SDD"
 - Treat as competing approaches
 
 **Do say:**
+
 - "SDD incorporates context engineering practices"
 - "Specifications are a form of context compression"
 

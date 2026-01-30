@@ -1,0 +1,46 @@
+# .markdownlint.yaml
+# Rules: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+default: true
+
+# Line length - disabled for prose
+MD013: false
+
+# Fenced code blocks don't require language (diagrams, templates, etc.)
+MD040: false
+
+# Allow multiple headings with same content (chapters may repeat patterns)
+MD024:
+  siblings_only: true
+
+# Allow trailing punctuation in headings (e.g., "What is SDD?")
+MD026:
+  punctuation: ".,;:!"
+
+# Allow inline HTML (for comments, special formatting)
+MD033: false
+
+# Allow bare URLs (useful in references)
+MD034: false
+
+# Allow emphasis as heading (## *italic heading*)
+MD036: false
+
+# First line doesn't have to be heading (front matter, etc.)
+MD041: false
+
+# Code block style
+MD046:
+  style: fenced
+
+# Code fence style
+MD048:
+  style: backtick
+
+# Emphasis style
+MD049:
+  style: asterisk
+
+# Strong style
+MD050:
+  style: asterisk
