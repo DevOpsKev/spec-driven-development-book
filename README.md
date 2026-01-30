@@ -69,3 +69,9 @@ pre-commit install
 # Run linting manually
 pre-commit run --all-files
 ```
+
+## License
+
+This work is licensed under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+You are free to share this material with attribution. You may not use it commercially or create derivative works.
