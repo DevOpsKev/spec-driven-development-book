@@ -2,7 +2,7 @@
 
 **Spec Driven Development**
 
-*Code is a Side Effect*
+*AI Native Software Engineering
 
 Kevin Ryan
 

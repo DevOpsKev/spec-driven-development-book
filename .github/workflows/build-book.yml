@@ -1,0 +1,37 @@
+name: Build Book
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup dependencies
+        run: |
+          chmod +x scripts/setup-deps.sh
+          ./scripts/setup-deps.sh
+
+      - name: Build cover images
+        run: python3 scripts/build-cover.py
+
+      - name: Build EPUB
+        run: python3 scripts/build-epub.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdd-book
+          path: |
+            output/spec-driven-development.epub
+            output/front-cover.png
+            output/spine.png
+            output/back-cover.png

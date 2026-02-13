@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Build cover PNG from SVG source."""
+"""Build cover PNGs from SVG sources."""
 
 import subprocess
 import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-COVER_SVG = REPO_ROOT / "assets" / "cover" / "cover.svg"
+COVER_DIR = REPO_ROOT / "assets" / "cover"
 OUTPUT_DIR = REPO_ROOT / "output"
-OUTPUT_PNG = OUTPUT_DIR / "cover.png"
 
-# Cover dimensions
-WIDTH = 1600
-HEIGHT = 2286
+# Cover definitions: (svg_name, output_name, width, height)
+COVERS = [
+    ("front-cover.svg", "front-cover.png", 1600, 2286),
+    ("spine.svg", "spine.png", 228, 2286),
+    ("back-cover.svg", "back-cover.png", 1600, 2286),
+]
 
 
 def check_deps():
@@ -28,31 +30,44 @@ def check_deps():
         sys.exit(1)
 
 
-def build_cover():
-    """Convert SVG to PNG."""
-    if not COVER_SVG.exists():
-        print(f"Error: {COVER_SVG} not found.")
-        sys.exit(1)
+def build_cover(svg_name: str, png_name: str, width: int, height: int):
+    """Convert a single SVG to PNG."""
+    svg_path = COVER_DIR / svg_name
+    png_path = OUTPUT_DIR / png_name
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    if not svg_path.exists():
+        print(f"  Skipping {svg_name} (not found)")
+        return
 
-    print(f"Building cover: {COVER_SVG} -> {OUTPUT_PNG}")
     subprocess.run(
         [
             "rsvg-convert",
             "-w",
-            str(WIDTH),
+            str(width),
             "-h",
-            str(HEIGHT),
-            str(COVER_SVG),
+            str(height),
+            str(svg_path),
             "-o",
-            str(OUTPUT_PNG),
+            str(png_path),
         ],
         check=True,
     )
-    print(f"Done: {OUTPUT_PNG} ({OUTPUT_PNG.stat().st_size / 1024:.0f} KB)")
+    size_kb = png_path.stat().st_size / 1024
+    print(f"  {svg_name} -> {png_name} ({size_kb:.0f} KB)")
+
+
+def main():
+    """Build all cover images."""
+    print("Building cover images...\n")
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    for svg_name, png_name, width, height in COVERS:
+        build_cover(svg_name, png_name, width, height)
+
+    print("\nDone.")
 
 
 if __name__ == "__main__":
     check_deps()
-    build_cover()
+    main()

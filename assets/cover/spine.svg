@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 1500" width="150" height="1500">
+  <!-- Background -->
+  <rect width="150" height="1500" fill="#F8F4ED"/>
+
+  <!-- Red accent lines top and bottom -->
+  <line x1="20" y1="50" x2="130" y2="50" stroke="#e63926" stroke-width="3"/>
+  <line x1="20" y1="1450" x2="130" y2="1450" stroke="#e63926" stroke-width="3"/>
+
+  <!-- Title: rotated 90° reading top to bottom -->
+  <text x="88" y="130" font-family="'Alfa Slab One', serif" font-weight="400" font-size="46" fill="#1a1a1a" transform="rotate(90, 88, 130)">Spec Driven Development</text>
+
+  <!-- Author: rotated 90° near bottom -->
+  <text x="82" y="1280" font-family="'Inter', sans-serif" font-weight="400" font-size="26" fill="#555555" transform="rotate(90, 82, 1280)">Kevin Ryan</text>
+</svg>

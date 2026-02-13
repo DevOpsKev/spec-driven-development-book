@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1500" width="1050" height="1500">
+  <!-- Background -->
+  <rect width="1050" height="1500" fill="#F8F4ED"/>
+
+  <!-- Vertical red line (right spine accent, mirroring front) -->
+  <line x1="942" y1="50" x2="942" y2="1450" stroke="#e63926" stroke-width="3"/>
+
+  <!-- Horizontal red line -->
+  <line x1="50" y1="1195" x2="1000" y2="1195" stroke="#e63926" stroke-width="3"/>
+
+  <!-- Blurb text -->
+  <text x="100" y="150" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#1a1a1a">
+    <tspan x="100" dy="0">This book exists because I got tired of watching</tspan>
+    <tspan x="100" dy="42">skilled developers struggle with AI coding tools.</tspan>
+  </text>
+
+  <text x="100" y="280" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#444444">
+    <tspan x="100" dy="0">Not because the tools are bad—they're remarkable.</tspan>
+    <tspan x="100" dy="42">But because we're using them wrong. We prompt,</tspan>
+    <tspan x="100" dy="42">we iterate, we fix, we prompt again. We call it</tspan>
+    <tspan x="100" dy="42">"vibe coding" and laugh about it. Meanwhile, the</tspan>
+    <tspan x="100" dy="42">code drifts from what we actually wanted, and we</tspan>
+    <tspan x="100" dy="42">spend more time wrangling the AI than building</tspan>
+    <tspan x="100" dy="42">software.</tspan>
+  </text>
+
+  <text x="100" y="600" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#1a1a1a">
+    <tspan x="100" dy="0">There's a better way.</tspan>
+  </text>
+
+  <text x="100" y="690" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#444444">
+    <tspan x="100" dy="0">Specification Driven Development inverts the</tspan>
+    <tspan x="100" dy="42">relationship between humans and AI. Instead of</tspan>
+    <tspan x="100" dy="42">prompting and hoping, you write specifications.</tspan>
+    <tspan x="100" dy="42">Instead of fixing generated code, you refine</tspan>
+    <tspan x="100" dy="42">specifications until the code emerges correctly.</tspan>
+    <tspan x="100" dy="42">The specification becomes the artifact.</tspan>
+    <tspan x="100" dy="42">Code becomes a side effect.</tspan>
+  </text>
+
+  <text x="100" y="1010" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#444444">
+    <tspan x="100" dy="0">This isn't theory. It's a methodology I've used on</tspan>
+    <tspan x="100" dy="42">real projects, with real teams, shipping real</tspan>
+    <tspan x="100" dy="42">software. It works.</tspan>
+  </text>
+
+  <text x="100" y="1140" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#1a1a1a">This book will teach you how.</text>
+
+  <!-- Author and date below the red line -->
+  <text x="100" y="1260" font-family="'Inter', sans-serif" font-weight="900" font-size="32" fill="#1a1a1a">Kevin Ryan</text>
+  <text x="100" y="1305" font-family="'Inter', sans-serif" font-weight="400" font-size="26" fill="#555555">January 2026</text>
+
+  <!-- URL -->
+  <text x="100" y="1420" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#e63926">sddbook.com</text>
+</svg>

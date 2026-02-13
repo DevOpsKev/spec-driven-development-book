@@ -23,7 +23,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BOOK_TITLE = "spec-driven-development"
 CONTENT_DIR = REPO_ROOT / "content"
-COVER_IMAGE = REPO_ROOT / "output" / "cover.png"
+COVER_IMAGE = REPO_ROOT / "output" / "front-cover.png"
 METADATA_FILE = REPO_ROOT / "build" / "epub" / "metadata.yaml"
 CSS_FILE = REPO_ROOT / "build" / "epub" / "styles.css"
 OUTPUT_DIR = REPO_ROOT / "output"
