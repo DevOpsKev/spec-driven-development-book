@@ -4,7 +4,7 @@
 
 *AI Native Software Engineering*
 
-Kevin Ryan - test
+Kevin Ryan
 
 ---
 
