@@ -2,7 +2,7 @@
 
 **Spec Driven Development**
 
-*AI Native Software Engineering
+*AI Native Software Engineering*
 
 Kevin Ryan
 
