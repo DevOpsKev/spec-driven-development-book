@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spec Driven Development — AI Native Software Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #DADADA;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .mockup {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .mockup img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .content {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-family: 'Alfa Slab One', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #1a1a1a;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-weight: 900;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: #e63926;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background: #c42f1f;
+      transform: translateY(-2px);
+    }
+
+    .author {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .author a {
+      color: #e63926;
+      text-decoration: none;
+    }
+
+    .author a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="mockup">
+      <img src="sdd-book-mockup.png" alt="Spec Driven Development book cover mockup">
+    </div>
+    <div class="content">
+      <h1>Spec Driven Development</h1>
+      <p class="subtitle">AI Native Software Engineering</p>
+      <p class="tagline">Move beyond ad-hoc prompting to structured workflows where the spec is the source of truth and code follows.</p>
+      <a href="https://sddbook.blob.core.windows.net/downloads/spec-driven-development.epub" class="download-btn">Download Free EPUB</a>
+      <p class="author">By <a href="https://kevinryan.io">Kevin Ryan</a></p>
+    </div>
+  </div>
+</body>
+</html>
