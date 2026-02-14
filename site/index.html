@@ -69,6 +69,13 @@
       margin-bottom: 2rem;
     }
 
+    .download-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .download-btn {
       display: inline-block;
       background: #e63926;
@@ -84,6 +91,15 @@
 
     .download-btn:hover {
       background: #c42f1f;
+      transform: translateY(-2px);
+    }
+
+    .download-btn.secondary {
+      background: #1a1a1a;
+    }
+
+    .download-btn.secondary:hover {
+      background: #333;
       transform: translateY(-2px);
     }
 
@@ -112,7 +128,10 @@
       <h1>Spec Driven Development</h1>
       <p class="subtitle">AI Native Software Engineering</p>
       <p class="tagline">Move beyond ad-hoc prompting to structured workflows where the spec is the source of truth and code follows.</p>
-      <a href="https://sddbook.blob.core.windows.net/downloads/spec-driven-development.epub" class="download-btn">Download Free EPUB</a>
+      <div class="download-buttons">
+        <a href="https://sddbook.blob.core.windows.net/downloads/spec-driven-development.epub" class="download-btn">Download EPUB</a>
+        <a href="https://sddbook.blob.core.windows.net/downloads/spec-driven-development.pdf" class="download-btn secondary">Download PDF</a>
+      </div>
       <p class="author">By <a href="https://kevinryan.io">Kevin Ryan</a></p>
     </div>
   </div>
