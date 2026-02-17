@@ -1,9 +1,11 @@
-name: Build Book
+name: Build & Deploy Book
 
 on:
   push:
     branches: [main]
     tags: ["v*"]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -11,15 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install dependencies
-        run: scripts/setup-deps.sh
-
-      - name: Determine build reference
-        id: meta
+      - name: Capture build info
+        id: build-info
         run: |
           BUILD_DATE=$(date +'%Y.%m.%d')
           TAG=$(git describe --exact-match --tags 2>/dev/null || echo "")
@@ -34,38 +34,62 @@ jobs:
           echo "build_date=${BUILD_DATE}" >> "$GITHUB_OUTPUT"
           echo "Build: ${GIT_REF} · ${BUILD_DATE}"
 
+      - name: Setup dependencies
+        run: |
+          chmod +x scripts/setup-deps.sh
+          ./scripts/setup-deps.sh
+
       - name: Build cover images
         run: |
-          python scripts/build-cover.py \
-            --git-hash "${{ steps.meta.outputs.git_ref }}" \
-            --build-date "${{ steps.meta.outputs.build_date }}"
-
-      - name: Build PDF
-        run: |
-          python scripts/build-pdf.py \
-            --git-hash "${{ steps.meta.outputs.git_ref }}" \
-            --build-date "${{ steps.meta.outputs.build_date }}"
+          python3 scripts/build-cover.py \
+            --git-hash "${{ steps.build-info.outputs.git_ref }}" \
+            --build-date "${{ steps.build-info.outputs.build_date }}"
 
       - name: Build EPUB
         run: |
-          python scripts/build-epub.py \
-            --git-hash "${{ steps.meta.outputs.git_ref }}" \
-            --build-date "${{ steps.meta.outputs.build_date }}"
+          python3 scripts/build-epub.py \
+            --git-hash "${{ steps.build-info.outputs.git_ref }}" \
+            --build-date "${{ steps.build-info.outputs.build_date }}"
 
-      - name: Upload build artifacts
+      - name: Build PDFs
+        run: |
+          python3 scripts/build-pdf.py \
+            --git-hash "${{ steps.build-info.outputs.git_ref }}" \
+            --build-date "${{ steps.build-info.outputs.build_date }}"
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: sdd-book-${{ steps.meta.outputs.git_ref }}
+          name: sdd-book-${{ steps.build-info.outputs.git_ref }}
           path: |
+            output/spec-driven-development.epub
             output/spec-driven-development.pdf
             output/spec-driven-development-print.pdf
-            output/spec-driven-development.epub
             output/front-cover.png
+            output/spine.png
+            output/back-cover.png
 
       - name: Azure Login
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy to Azure Blob Storage
-        run: python scripts/deploy-content.py sddbook downloads
+      - name: Deploy to Blob Storage
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          for file in \
+            spec-driven-development.epub \
+            spec-driven-development.pdf \
+            spec-driven-development-print.pdf; do
+            if [ -f "output/$file" ]; then
+              echo "Uploading $file..."
+              az storage blob upload \
+                --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+                --container-name downloads \
+                --name "$file" \
+                --file "output/$file" \
+                --overwrite \
+                --auth-mode login
+            fi
+          done
