@@ -15,31 +15,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      # --- Dependencies ---
-
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            librsvg2-bin \
-            pandoc \
-            texlive-xetex \
-            texlive-latex-extra
-
-      - name: Install fonts from repo
-        run: |
-          mkdir -p ~/.local/share/fonts
-          cp assets/fonts/*.ttf ~/.local/share/fonts/
-          fc-cache -fv
-
-      # --- Build metadata ---
+      - name: Install dependencies
+        run: scripts/setup-deps.sh
 
       - name: Determine build reference
         id: meta
         run: |
           BUILD_DATE=$(date +'%Y.%m.%d')
-
-          # Check if current commit has a version tag
           TAG=$(git describe --exact-match --tags 2>/dev/null || echo "")
 
           if [ -n "$TAG" ]; then
@@ -51,8 +33,6 @@ jobs:
           echo "git_ref=${GIT_REF}" >> "$GITHUB_OUTPUT"
           echo "build_date=${BUILD_DATE}" >> "$GITHUB_OUTPUT"
           echo "Build: ${GIT_REF} · ${BUILD_DATE}"
-
-      # --- Build steps ---
 
       - name: Build cover images
         run: |
@@ -71,8 +51,6 @@ jobs:
           python scripts/build-epub.py \
             --git-hash "${{ steps.meta.outputs.git_ref }}" \
             --build-date "${{ steps.meta.outputs.build_date }}"
-
-      # --- Artifacts ---
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
