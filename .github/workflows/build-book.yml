@@ -40,6 +40,21 @@ jobs:
             --git-hash "${{ steps.meta.outputs.git_ref }}" \
             --build-date "${{ steps.meta.outputs.build_date }}"
 
+      - name: Debug cover build
+        run: |
+          echo "=== Check token in source SVG ==="
+          python -c "
+          from pathlib import Path
+          svg = Path('assets/cover/front-cover.svg').read_text()
+          print('Token present:', '{{BUILD_REF}}' in svg)
+          "
+          echo "=== Check output file ==="
+          ls -la output/front-cover.png
+          echo "=== Check Inter font availability ==="
+          fc-list | grep -i inter || echo "WARNING: Inter font not found by fontconfig"
+          echo "=== Check all SDD fonts ==="
+          fc-list | grep -i "alfa slab\|inter\|source serif\|jetbrains" || echo "WARNING: No SDD fonts found"
+
       - name: Build PDF
         run: |
           python scripts/build-pdf.py \
