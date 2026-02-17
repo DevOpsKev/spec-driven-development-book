@@ -422,9 +422,10 @@
         </div>
       </div>
 
-      <p>The publication pipeline is fully automated and deterministic. Every push to main triggers a build that renders the cover, compiles the PDF and EPUB, and deploys to Azure Blob Storage — with no manual intervention between commit and publication.</p>
-      <p>The cover carries a build reference — a git commit hash or version tag — injected into the SVG at build time. The same reference appears on the copyright page of every format. Pick up any copy and you know exactly what state of the repository produced it. That's not decoration. It's traceability — the same principle the book advocates for production software.</p>
-      <p>Non-deterministic generation, deterministic validation, automated deployment. The book's methodology applied to its own creation.</p>
+      <p>Every chapter begins with the same workflow the book teaches. The <code style="font-family: var(--mono); font-size: 0.9em; color: #fff;">.spec</code> server loads the book brief, chapter outline, and editorial constraints. The <code style="font-family: var(--mono); font-size: 0.9em; color: #fff;">.skills</code> server provides the agent with relevant capabilities. The <code style="font-family: var(--mono); font-size: 0.9em; color: #fff;">.brand</code> server enforces tone, voice, and positioning rules. The AI agent writes against these specifications — not from a blank prompt.</p>
+      <p>The output is validated against the spec before it's committed. Does it match the chapter's declared scope? Does the voice hold? Does it contradict anything established elsewhere? This is the specify–generate–validate loop the book describes, applied to its own prose.</p>
+      <p>On merge to main, the publication pipeline takes over. It determines a build reference — a version tag or commit SHA — and injects it into the cover SVG and the copyright page of every format. The cover, the PDF, and the EPUB are rendered, validated, and deployed to Azure Blob Storage. No manual intervention between commit and publication.</p>
+      <p>Pick up any copy and you know exactly what state of the repository produced it. That's not decoration. It's traceability — the same principle the book advocates for production software. Non-deterministic generation, deterministic validation, automated deployment. The book's methodology applied to its own creation.</p>
 
       <div class="pipeline">
         <div class="step"><span class="step-num">01</span><span class="step-text">MCP servers load spec, skills, and brand context</span></div>
