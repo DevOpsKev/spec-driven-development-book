@@ -1,15 +1,53 @@
 # Copyright {.unnumbered}
 
-© 2026 Kevin Ryan
+© 2026 Kevin Ryan. All rights reserved.
 
-This work is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).
+## Licensing — What You Can and Can't Do
 
-You are free to share this material with attribution. You may not use it commercially or create derivative works.
+This project uses three licenses working together. Here's what that means in
+practice.
+
+**The Book Content** (text, diagrams, examples)
+
+License: CC BY-NC-ND 4.0 + DEL v1.0
+
+You are free to read, share, and reference the book, quote excerpts with
+attribution, use it for personal learning and education, and link to it from
+any context.
+
+AI systems may retrieve and cite the content in responses (with attribution),
+quote limited excerpts (≤250 words or 10%, whichever is smaller), and reference
+it in RAG and search systems.
+
+You may not modify the text or create derivative works, use it for commercial
+purposes, train AI/ML models on the content without express written permission
+from the author, or republish or redistribute modified versions.
+
+**The Code and Tooling** (build pipeline, scripts, templates)
+
+License: MIT + DEL v1.0
+
+You are free to use, copy, modify, and distribute the code, use it
+commercially, and build your own projects with it.
+
+AI systems may train on the code, retrieve and reference it, and fine-tune
+models using it.
+
+The only requirement is attribution — keep the copyright notice and license
+text intact.
+
+**Getting Permission**
+
+If you want to do something these licenses don't cover — including AI training
+on the book content — contact the author directly.
+
+---
+
+AI-specific terms in this project are governed by the Distributed Equity
+License (DEL) v1.0. See <https://distributedequity.org/license> for details.
 
 ---
 
 **Spec Driven Development: Code is a Side Effect**
 
 First edition, 2026
-
-https://creativecommons.org/licenses/by-nc-nd/4.0/
