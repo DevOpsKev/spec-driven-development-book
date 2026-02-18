@@ -10,7 +10,7 @@ I am building this in the open because specification-driven development improves
 - Experience practising specification-driven development on your own projects
 - Technical feedback on the book's content, structure, or accuracy
 
-Contributing to this book works the same way as contributing to any open-source project. The repository is on GitHub at [github.com/DevOpsKev/spec-driven-development](https://github.com/DevOpsKev/spec-driven-development). You can open issues, submit pull requests, or reach me directly:
+Contributing to this book works the same way as contributing to any open-source project. The repository is on [GitHub](https://github.com/DevOpsKev/spec-driven-development). You can open issues, submit pull requests, or reach me directly:
 
 - Email: [kevin@kevinryan.io](mailto:kevin@kevinryan.io)
 - Website: [kevinryan.io](https://kevinryan.io)
