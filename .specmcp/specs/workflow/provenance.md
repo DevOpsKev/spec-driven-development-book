@@ -102,6 +102,5 @@ When executing a spec, use a prompt of this form:
 Create a branch named `spec/<spec-name>/<action>` and execute the
 `<spec-name>` spec. Read the spec with `get_spec("<spec-name>")`, then
 <describe the work>. Record a provenance entry in
-`<spec-name>.provenance.md`. Commit the changes and open a PR against
-`main`.
+`<spec-name>.provenance.md`. Commit the changes and push the branch.
 ```

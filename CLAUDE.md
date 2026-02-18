@@ -42,9 +42,15 @@ When executing any spec:
 4. Create a branch named `spec/<spec-name>/<action>`
 5. Execute the work
 6. Append a provenance entry to `<spec-name>.provenance.md`
-7. Commit everything together and open a PR against `main`
+7. Commit everything together and push the branch
 
 ## Code Quality
 
 Python code uses ruff (linting + formatting) and mypy (type checking).
 Run `pre-commit run --all-files` before committing.
+
+## Environment Constraints
+
+This environment supports git push but does not have GitHub API access.
+Do not attempt to create PRs via `gh` CLI — push the branch and the
+author will create the PR manually.
