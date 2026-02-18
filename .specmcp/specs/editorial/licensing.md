@@ -98,7 +98,7 @@ on the book content — contact the author directly.
 
 ## Copyright Page Text
 
-The copyright page in `content/front-matter/copyright.md` must contain,
+The copyright page in `content/00-front-matter/02-copyright.md` must contain,
 in order:
 
 1. Copyright notice: `© [year] Kevin Ryan. All rights reserved.`
