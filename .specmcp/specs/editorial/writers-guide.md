@@ -199,6 +199,16 @@ When showing specifications, use code blocks. Annotate with comments or follow w
 
 **Code:** Use inline `code` for commands, function names, file names. Use code blocks for multi-line examples.
 
+**URLs:** Never use raw URLs in prose. They do not break cleanly across lines in PDF output. Use descriptive markdown links instead.
+
+```markdown
+<!-- Bad: overflows in PDF -->
+The repository is on GitHub at github.com/DevOpsKev/spec-driven-development.
+
+<!-- Good: short display text, clickable everywhere -->
+The repository is on [GitHub](https://github.com/DevOpsKev/spec-driven-development).
+```
+
 ---
 
 ## Anti-Patterns
