@@ -4,6 +4,11 @@
       "type": "stdio",
       "command": "python",
       "args": [".specmcp/server.py"]
+    },
+    "sdd-book-skills": {
+      "type": "stdio",
+      "command": "python",
+      "args": [".skillmcp/server.py"]
     }
   }
 }

@@ -15,7 +15,6 @@ fi
 echo "==> Installing system dependencies..."
 sudo apt-get update -qq || echo "    Warning: apt-get update had errors, continuing..."
 sudo apt-get install -y -qq \
-  git-lfs \
   librsvg2-bin \
   pandoc \
   texlive-xetex \
@@ -25,8 +24,11 @@ sudo apt-get install -y -qq \
   lmodern \
   > /dev/null
 
-echo "==> Installing Python tools..."
-pip install --quiet --break-system-packages pre-commit
+echo "==> Installing Python dependencies..."
+pip install --quiet --break-system-packages -r "$REPO_ROOT/requirements.txt"
+for req in "$REPO_ROOT"/.*mcp/requirements.txt; do
+  [ -f "$req" ] && echo "    Installing from $req" && pip install --quiet --break-system-packages -r "$req"
+done
 
 echo "==> Installing pre-commit hooks..."
 cd "$REPO_ROOT"
