@@ -9,6 +9,11 @@
       "type": "stdio",
       "command": "python",
       "args": [".skillmcp/server.py"]
+    },
+    "sdd-book-brand": {
+      "type": "stdio",
+      "command": "python",
+      "args": [".brandmcp/server.py"]
     }
   }
 }
