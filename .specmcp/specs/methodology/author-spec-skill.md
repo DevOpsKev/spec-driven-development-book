@@ -11,11 +11,11 @@ convention to support multiple skills.
 Before executing this spec, load the mcp-builder skill:
 
 ```
-get_skill("SKILL")
+get_skill("mcp-builder")
 ```
 
-Note: this prerequisite call will change after this spec executes.
-Future specs will use `get_skill("mcp-builder")`.
+Note: this prerequisite call was updated when this spec was executed.
+Previously it was `get_skill("SKILL")`.
 
 ## Context
 

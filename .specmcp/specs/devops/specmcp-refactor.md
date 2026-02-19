@@ -10,7 +10,7 @@ specification files and expose provenance through dedicated MCP tools.
 Before executing this spec, load the mcp-builder skill:
 
 ```
-get_skill("SKILL")
+get_skill("mcp-builder")
 ```
 
 Follow all conventions described in that skill throughout this execution.
@@ -118,7 +118,7 @@ failure, never raise unhandled exceptions.
 
 ### 7. Align existing code with skill conventions
 
-Review the full `server.py` against the mcp-builder skill (`get_skill("SKILL")`)
+Review the full `server.py` against the mcp-builder skill (`get_skill("mcp-builder")`)
 and align where needed:
 
 - Ensure `discover_specs()` filters out `.provenance.md` files

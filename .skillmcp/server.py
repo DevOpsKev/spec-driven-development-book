@@ -108,7 +108,7 @@ def get_skill(name: str) -> str:
     """Get the full content of a skill document by name.
 
     Use list_skills to discover available names. Examples:
-    'SKILL' (for the mcp-builder skill).
+    'mcp-builder' (for the mcp-builder skill).
     """
     try:
         return load_skill(name)

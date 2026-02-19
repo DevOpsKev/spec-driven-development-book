@@ -23,7 +23,7 @@ Reusable skills that guide agent workflows:
 - **list_skills** — Discover available skills
 - **get_skill** — Read a skill by name
 
-Before building or refactoring any MCP server, call `get_skill("SKILL")`
+Before building or refactoring any MCP server, call `get_skill("mcp-builder")`
 to load the mcp-builder skill and follow its conventions.
 
 ## Key Specifications

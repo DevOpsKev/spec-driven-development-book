@@ -11,7 +11,7 @@ skill existed — this refactor ensures it practices what it preaches.
 Before executing this spec, load the mcp-builder skill:
 
 ```
-get_skill("SKILL")
+get_skill("mcp-builder")
 ```
 
 Follow all conventions described in that skill throughout this execution.
@@ -83,7 +83,7 @@ Overwrite (do not append). This file describes only this execution.
 - [ ] `pre-commit run --all-files` passes
 - [ ] `python .skillmcp/server.py` starts without error
 - [ ] `list_skills` returns available skills
-- [ ] `get_skill("SKILL")` returns the mcp-builder skill content
+- [ ] `get_skill("mcp-builder")` returns the mcp-builder skill content
 - [ ] `get_skill("nonexistent")` returns an error string, does not raise
 
 ## Out of Scope

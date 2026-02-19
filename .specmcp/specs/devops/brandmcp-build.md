@@ -12,7 +12,7 @@ an agent.
 Before executing this spec, load the mcp-builder skill:
 
 ```
-get_skill("SKILL")
+get_skill("mcp-builder")
 ```
 
 Follow all conventions described in that skill throughout this execution.
