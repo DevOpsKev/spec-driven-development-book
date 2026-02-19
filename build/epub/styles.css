@@ -1,0 +1,17 @@
+/* Epigraph page styling */
+.epigraph {
+  margin: 20% auto 0;
+  padding: 0 10%;
+  text-align: center;
+  page-break-before: always;
+  page-break-after: always;
+}
+
+.epigraph p:first-child {
+  font-size: 1.2em;
+}
+
+.epigraph p:last-child {
+  font-size: 0.9em;
+  margin-top: 1.5em;
+}
