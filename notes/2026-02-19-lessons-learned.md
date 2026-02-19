@@ -312,6 +312,50 @@ each phase. Maps to our Brief → Spec → Plan → Execute → Validate.
 - `audiobook-cover-preview.svg` / `.png` (brand server proof of concept)
 - `AGENTS.md` (updated with all three MCP servers)
 
+## Compounding Velocity
+
+The most important empirical observation from the session: development
+velocity increased measurably as each MCP foundation layer went in.
+
+The first server (specmcp) was hand-built with no skill, no conventions,
+no pattern to follow. It worked, but every decision was made from
+scratch.
+
+The second server (skillmcp) was built from the mcp-builder skill — but
+the skill didn't exist when the server was first created, so it needed a
+refactor pass to align with conventions. Two steps: build, then fix.
+
+The third server (brandmcp) was built entirely from spec by an agent on
+the first attempt. The skill taught the agent how to build. The spec
+told it what to build. It produced a working four-tool MCP server, and
+minutes later an agent used that server to produce a brand-compliant
+audiobook cover with zero human intervention on the creative output.
+First attempt, no corrections.
+
+Each layer makes the next layer faster:
+
+- The skill teaches agents how to build (no more rediscovering
+  conventions)
+- The spec tells agents what to build (no more ambiguous prompts)
+- The brand server gives agents the tokens to build with (no more
+  hunting for hex codes)
+- Provenance captures what happened so the next spec is better
+  (institutional memory)
+- The author-spec skill closes the loop — now even the specs themselves
+  have a skill teaching agents how to write them
+
+This is the thesis of the book playing out in real time. The spec is
+cheap, the infrastructure is cheap, and the velocity compounds. This
+isn't a theoretical argument for SDD — it's empirical evidence observed
+across a single working session. The first server took the longest. The
+third server was built and validated in a fraction of the time. The
+fourth deliverable (audiobook cover) required no spec at all — just a
+natural language prompt and three tool calls.
+
+The investment in specifications, skills, and structured data pays back
+faster than expected, because each artifact reduces the cognitive load
+for every subsequent task.
+
 ## Quotes Worth Keeping
 
 "The best documentation is a side effect of the process, not an
@@ -329,6 +373,9 @@ A narrative arc built into version control."
 
 "The agent skipped plan approval and went straight to execution. That's
 a spec bug, not an agent bug."
+
+"Each layer makes the next layer faster. The spec is cheap, the
+infrastructure is cheap, and the velocity compounds."
 
 "It's turtles all the way down."
 
