@@ -59,6 +59,8 @@ def discover_specs(category: str | None = None) -> list[SpecInfo]:
     """Scan specs/ and return metadata for every .md file found."""
     specs: list[SpecInfo] = []
     for md_file in sorted(SPECS_DIR.rglob("*.md")):
+        if md_file.stem.endswith(".provenance"):
+            continue  # Skip provenance files — accessed via dedicated tools
         cat = md_file.parent.name
         if category and cat != category:
             continue
@@ -77,11 +79,43 @@ def discover_specs(category: str | None = None) -> list[SpecInfo]:
 def load_spec(name: str) -> str:
     """Load a spec by name. Raises ValueError if not found."""
     for md_file in SPECS_DIR.rglob("*.md"):
+        if md_file.stem.endswith(".provenance"):
+            continue
         if md_file.stem == name:
             return md_file.read_text(encoding="utf-8")
     available = [s.name for s in discover_specs()]
     msg = f"Spec '{name}' not found. Available: {', '.join(available)}"
     raise ValueError(msg)
+
+
+# ---------------------------------------------------------------------------
+# Provenance discovery
+# ---------------------------------------------------------------------------
+
+
+def discover_provenance() -> list[SpecInfo]:
+    """Scan specs/ for provenance files and return metadata for each."""
+    provenance: list[SpecInfo] = []
+    for md_file in sorted(SPECS_DIR.rglob("*.provenance.md")):
+        provenance.append(
+            SpecInfo(
+                name=md_file.stem,
+                category=md_file.parent.name,
+                path=str(md_file.relative_to(SPECS_DIR)),
+                title=_extract_title(md_file),
+                size_bytes=md_file.stat().st_size,
+            )
+        )
+    return provenance
+
+
+def load_provenance(spec_name: str) -> str:
+    """Load provenance for a spec by name. Returns error string if not found."""
+    target = f"{spec_name}.provenance"
+    for md_file in SPECS_DIR.rglob("*.provenance.md"):
+        if md_file.stem == target:
+            return md_file.read_text(encoding="utf-8")
+    return f"No provenance found for spec '{spec_name}'."
 
 
 # ---------------------------------------------------------------------------
@@ -193,6 +227,26 @@ def get_spec(name: str) -> str:
         return load_spec(name)
     except ValueError as exc:
         return str(exc)
+
+
+@mcp.tool()
+def list_provenance() -> str:
+    """List all provenance records across specs.
+
+    Returns metadata for each provenance file found.
+    """
+    records = discover_provenance()
+    return json.dumps([asdict(r) for r in records], indent=2)
+
+
+@mcp.tool()
+def get_provenance(spec_name: str) -> str:
+    """Get the provenance (execution history) for a specific spec.
+
+    Pass the spec name without the .provenance suffix.
+    Example: get_provenance("authors-note")
+    """
+    return load_provenance(spec_name)
 
 
 @mcp.tool()
