@@ -123,6 +123,21 @@ $if(csl-refs)$
 \newenvironment{CSLReferences}[2]{}{}
 $endif$
 
+% === EPIGRAPH ===
+\newenvironment{epigraph}{%
+  \cleardoublepage
+  \thispagestyle{empty}%
+  \null\vfill
+  \begin{center}%
+  \begin{minipage}{0.7\textwidth}%
+  \centering\large
+}{%
+  \end{minipage}%
+  \end{center}%
+  \vfill\null
+  \cleardoublepage
+}
+
 % ============================================================
 \begin{document}
 \frontmatter
