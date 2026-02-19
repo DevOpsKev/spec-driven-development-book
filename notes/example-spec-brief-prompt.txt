@@ -20,9 +20,10 @@ Brief:
 - Document the provenance system
 - Update repository structure tree from actual directory state
 - Strengthen the dogfooding angle — this repo proves the methodology
-- Replace static Progress section with something that doesn't rot (or
-  remove)
+- Replace static Progress section with something that doesn't rot
+  (or remove)
 - Keep sections that are structurally stable (thesis, audience, outputs,
   build, CI/CD, license)
-- British English throughout
+- British English throughout (matches brand voice and author's voice)
 - Reference AGENTS.md not CLAUDE.md for agent workflow
+- Include sddbook.com as the book's website, link prominently
