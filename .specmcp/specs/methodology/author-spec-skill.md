@@ -3,9 +3,8 @@
 ## Purpose
 
 Create the `author-spec` skill that teaches AI agents how to write
-effective specifications for SDD workflows. This skill codifies the
-principles, workflow, and patterns discovered through practical
-application of the SDD methodology.
+effective specifications for SDD workflows, and fix the skill naming
+convention to support multiple skills.
 
 ## Prerequisites
 
@@ -14,6 +13,9 @@ Before executing this spec, load the mcp-builder skill:
 ```
 get_skill("SKILL")
 ```
+
+Note: this prerequisite call will change after this spec executes.
+Future specs will use `get_skill("mcp-builder")`.
 
 ## Context
 
@@ -27,14 +29,45 @@ build MCP servers) and from the specs themselves (which describe specific
 work). The author-spec skill teaches the *meta-practice* of writing
 specifications that agents can execute reliably.
 
+## Naming Convention Fix
+
+The current mcp-builder skill uses the filename `SKILL.md`. This worked
+with a single skill but breaks with multiple skills because
+`load_skill()` matches on file stem — all skills named `SKILL.md` would
+collide.
+
+The fix: each skill file is named after the skill itself.
+
+- `mcp-builder/SKILL.md` → `mcp-builder/mcp-builder.md`
+- `author-spec/author-spec.md` (new)
+
+This makes `get_skill("mcp-builder")` and `get_skill("author-spec")`
+unambiguous. The `load_skill()` function in `.skillmcp/server.py`
+requires no changes — it already matches on stem name.
+
 ## Changes
 
-### 1. Create the skill file
+### 1. Rename mcp-builder skill file
 
-Create `.skillmcp/skills/author-spec/SKILL.md` with the content
+Rename `.skillmcp/skills/mcp-builder/SKILL.md` to
+`.skillmcp/skills/mcp-builder/mcp-builder.md` using `git mv`.
+
+Content stays identical. Only the filename changes.
+
+### 2. Update AGENTS.md references
+
+Replace all references to `get_skill("SKILL")` in `AGENTS.md` with
+`get_skill("mcp-builder")`.
+
+If any other files in the repository reference `get_skill("SKILL")`,
+update those too. Search the entire repo.
+
+### 3. Create the author-spec skill file
+
+Create `.skillmcp/skills/author-spec/author-spec.md` with the content
 specified below.
 
-### 2. Skill Content
+### 4. Skill Content
 
 The skill must cover the following sections in this order. Each section
 includes the required content — the agent should use this as the source
@@ -123,7 +156,7 @@ unless there is a good reason to omit them.
 
 2. **Prerequisites** (required) — Skills, specs, or context that
    must be loaded before execution. Always include:
-   `get_skill("SKILL")` for the relevant skill.
+   `get_skill("<skill-name>")` for the relevant skill.
 
 3. **Context** (recommended) — Why this work exists. What problem
    it solves. What the current state is. This section helps agents
@@ -299,19 +332,24 @@ Before committing a spec to main, review against this checklist:
 
 ---
 
-### 3. Verify
+### 5. Verify
 
 Every check below is mandatory. Do not skip any.
 
-- [ ] `.skillmcp/skills/author-spec/SKILL.md` exists
-- [ ] `list_skills` returns author-spec in the skills list
-- [ ] `get_skill("SKILL")` from the author-spec directory returns
-      the full skill content
-- [ ] Content covers all sections specified above
-- [ ] No section duplicates content from other skills
+- [ ] `.skillmcp/skills/mcp-builder/SKILL.md` no longer exists
+- [ ] `.skillmcp/skills/mcp-builder/mcp-builder.md` exists with identical content
+- [ ] `AGENTS.md` contains no references to `get_skill("SKILL")`
+- [ ] No file in the repo references `get_skill("SKILL")`
+- [ ] `get_skill("mcp-builder")` returns the mcp-builder skill content
+- [ ] `.skillmcp/skills/author-spec/author-spec.md` exists
+- [ ] `list_skills` returns both mcp-builder and author-spec
+- [ ] `get_skill("author-spec")` returns the author-spec skill content
+- [ ] `get_skill("nonexistent")` returns an error string, does not raise
+- [ ] Content covers all seven sections specified above
+- [ ] No section duplicates content from the mcp-builder skill
 - [ ] `pre-commit run --all-files` passes
 
-### 4. Write provenance
+### 6. Write provenance
 
 Create the provenance file for this execution at:
 
@@ -323,11 +361,12 @@ Overwrite (do not append).
 
 ## Out of Scope
 
-- Updating AGENTS.md (separate task)
-- Changes to existing specs or skills
 - Changes to `.specmcp` or `.brandmcp` servers
+- Changes to `.skillmcp/server.py` (load_skill already matches on stem)
 - Spec templates or generators (future work)
 - Tooling to automate the workflow (future work)
+- Updating existing specs to use new `get_skill("mcp-builder")` syntax
+  (they reference the skill at execution time; the rename handles it)
 
 ## Branch
 
