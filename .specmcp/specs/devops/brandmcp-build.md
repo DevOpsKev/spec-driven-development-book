@@ -3,7 +3,7 @@
 ## Purpose
 
 Create the `.brandmcp` MCP server from scratch, providing AI agents with
-structured access to brand guidelines, design tokens, and visual identity
+structured access to brand guidelines, design tokens, and brand validation
 for the SDD book. This is the first server built entirely from spec by
 an agent.
 
@@ -23,7 +23,8 @@ The SDD book has an established visual identity defined across cover SVGs
 (`assets/cover/`) and a LaTeX template (`build/pdf/template.tex`). These
 brand elements are currently implicit — embedded in build files with no
 single source of truth. This server extracts them into queryable brand
-guidelines that any agent can consume.
+guidelines that any agent can consume, and provides validation to catch
+brand violations before they ship.
 
 ## Single Source of Truth
 
@@ -41,6 +42,7 @@ This means:
 - To change a hex code, edit `tokens.json`. The markdown prose stays as-is.
 - To change a usage rule, edit the markdown file. The token stays as-is.
 - `get_design_tokens` reads `tokens.json` directly — no parsing markdown.
+- `validate_brand` reads `tokens.json` to check content against canonical values.
 - Markdown files may quote token values for readability, but `tokens.json`
   is authoritative if they ever diverge.
 
@@ -266,7 +268,7 @@ sddbook.com — always lowercase, always in `accent-red`.
 ### 4. Create server.py
 
 Follow the mcp-builder skill architecture pattern exactly. The server
-must implement three tools:
+must implement four tools:
 
 #### `list_brand(category: str | None = None) -> str`
 
@@ -288,6 +290,47 @@ Read and return `brand/tokens.json` directly. No transformation, no
 parsing markdown. Returns the raw JSON content.
 
 If `tokens.json` is missing or unreadable, return an error string.
+
+#### `validate_brand(content: str) -> str`
+
+Validate content against the brand guidelines. Reads `tokens.json` to
+check content against canonical values. Returns a JSON report.
+
+Checks to implement:
+
+1. **Colour references** — scan for hex colour codes in content. Flag any
+   hex code that is not in `tokens.json` `colours` values. This catches
+   off-brand colours being introduced.
+
+2. **Font references** — scan for font-family references in content. Flag
+   any font name that is not in `tokens.json` `fonts` values. This catches
+   off-brand fonts being introduced.
+
+3. **Spelling** — flag "color" (American) when found outside of code blocks
+   or HTML/CSS attributes. The brand uses British English ("colour").
+
+Return format:
+
+```json
+{
+  "passed": true,
+  "issue_count": 0,
+  "issues": []
+}
+```
+
+Issue format:
+
+```json
+{
+  "type": "off_brand_colour",
+  "found": "#FF0000",
+  "line": 12,
+  "suggestion": "Use a colour from tokens.json"
+}
+```
+
+Issue types: `off_brand_colour`, `off_brand_font`, `spelling`.
 
 ### 5. Create requirements.txt
 
@@ -327,15 +370,21 @@ Overwrite (do not append). This file describes only this execution.
 
 ### 9. Verify
 
+Every check below is mandatory. Do not skip any.
+
 - [ ] `ruff check .brandmcp/` passes
 - [ ] `ruff format --check .brandmcp/` produces no changes
 - [ ] `pre-commit run --all-files` passes
 - [ ] `python .brandmcp/server.py` starts without error
-- [ ] `list_brand` returns palette, typography, layout, voice
+- [ ] `list_brand` returns four entries: palette, typography, layout, voice
 - [ ] `get_brand("palette")` returns colour palette content
+- [ ] `get_brand("typography")` returns typography content
 - [ ] `get_brand("nonexistent")` returns an error string, does not raise
-- [ ] `get_design_tokens` returns valid JSON with colours, fonts, and page keys
+- [ ] `get_design_tokens` returns valid JSON with `colours`, `fonts`, and `page` keys
 - [ ] `tokens.json` is valid JSON and parseable
+- [ ] `validate_brand` with clean content returns `{"passed": true, ...}`
+- [ ] `validate_brand` with an off-brand hex code flags it as `off_brand_colour`
+- [ ] `validate_brand` with "color" in prose flags it as `spelling`
 - [ ] `.mcp.json` contains `sdd-book-brand` entry
 
 ## Out of Scope
