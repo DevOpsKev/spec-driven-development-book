@@ -112,6 +112,18 @@ complete document an agent can execute without further context. This
 distinction matters because the brief is where you think, the spec is
 where you hand off.
 
+**If you're not sure about the spec, execute two and pick the winner.**
+When reviewing a spec and you can't tell whether it's good enough —
+execute two versions on different branches and compare the outputs. The
+spec is cheap. Execution is cheap. The delta between results tells you
+exactly what matters in the spec and what was noise. We did this with
+the readme-update spec: v1 was prescriptive (16 subsections dictating
+each paragraph), v2 was principled (5 steps, intent over implementation).
+Comparing the two would have told us precisely how much per-section
+guidance the executing agent actually needs. Don't theorise about spec
+quality — run the experiment. Keep the spec that produced the better
+result, bin the other.
+
 ## New IP Created This Session
 
 We reviewed five external SDD sources before authoring the skill:
@@ -387,6 +399,9 @@ a spec bug, not an agent bug."
 infrastructure is cheap, and the velocity compounds."
 
 "The IDE is for code. When code is a side effect, you don't need one."
+
+"If you're not sure about the spec, execute two and pick the winner.
+Don't theorise about spec quality — run the experiment."
 
 "It's turtles all the way down."
 
