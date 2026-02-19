@@ -124,6 +124,36 @@ guidance the executing agent actually needs. Don't theorise about spec
 quality — run the experiment. Keep the spec that produced the better
 result, bin the other.
 
+**The whole execution is three prompts.**
+The readme-update execution proved this. Prompt 1: "create a plan."
+Prompt 2: a three-line correction after plan review (fix the generation
+notice wording, acknowledge the MCP fallback deviation, fix a misleading
+verification check). Prompt 3: "execute." Total cognitive budget spent
+on reviewing the plan and writing three sentences. Everything else was
+mechanical. If your execution takes more than three prompts, your spec
+has holes or your plan review isn't catching enough.
+
+**Plan review earns its keep on the first run.**
+The readme-update plan had the generation notice wrong — a generic
+"DO NOT HAND-EDIT" comment instead of the spec-mandated wording that
+names the spec and says "update the spec instead." Without plan review,
+the README would have shipped with a generation notice that didn't tell
+anyone which spec to update. That's not a hypothetical — it was a
+concrete bug caught in sixty seconds of reading the plan, fixed with
+one sentence in the correction prompt. The step 6 decision gate isn't
+ceremony; it's where you catch the bugs that would cost you a whole
+re-execution to fix.
+
+**Log deviations, don't hide them.**
+The readme-update execution couldn't call MCP tools (environment
+constraint), so the agent fell back to reading Python source files. The
+brief explicitly said "do NOT read Python source files." Rather than
+pretending this didn't happen, the plan logged it as a known deviation,
+and the provenance file records it. Deviations aren't failures — hidden
+deviations are. If you know you're going off-spec, say so. The
+provenance file is the place to be honest. Future readers (including
+yourself) will thank you.
+
 ## New IP Created This Session
 
 We reviewed five external SDD sources before authoring the skill:
@@ -207,6 +237,15 @@ The skillmcp server didn't filter `.provenance.md` files from discovery
 or loading — a convention that existed in specmcp but wasn't applied
 when skillmcp was built before the mcp-builder skill existed. The skill
 now documents this convention explicitly.
+
+**Wrong generation notice in readme-update plan.**
+The plan used a generic `<!-- GENERATED FILE — DO NOT HAND-EDIT -->`
+instead of the spec-mandated wording that names the spec and tells the
+reader which file to update. Plan review caught it. The fix was one
+sentence in the correction prompt: "Generation notice must match the
+spec — use the spec name and 'update the spec instead' message." The
+plan was updated, not the spec — because this was a plan bug, not a
+spec bug. The spec was clear; the agent just didn't follow it precisely.
 
 ## The Ouroboros
 
@@ -402,6 +441,14 @@ infrastructure is cheap, and the velocity compounds."
 
 "If you're not sure about the spec, execute two and pick the winner.
 Don't theorise about spec quality — run the experiment."
+
+"The whole execution is three prompts. If it's more, your spec has
+holes."
+
+"Deviations aren't failures. Hidden deviations are."
+
+"The step 6 decision gate isn't ceremony — it's where you catch the
+bugs that would cost you a whole re-execution to fix."
 
 "It's turtles all the way down."
 
