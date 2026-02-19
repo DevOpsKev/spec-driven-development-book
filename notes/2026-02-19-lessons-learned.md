@@ -356,6 +356,15 @@ The investment in specifications, skills, and structured data pays back
 faster than expected, because each artifact reduces the cognitive load
 for every subsequent task.
 
+**The IDE disappeared.** By the last few commits of the session, the
+author stopped opening an IDE entirely. No diff review, no file
+scanning, no manual structure checks. The specs define what to verify.
+The mandatory checks confirm correctness. The provenance documents
+decisions. `git log` provides the audit trail. The entire workflow —
+spec authoring, plan review, execution approval, validation — happened
+through conversation and agent execution. The IDE is for code. When
+code is a side effect, you don't need one.
+
 ## Quotes Worth Keeping
 
 "The best documentation is a side effect of the process, not an
@@ -377,6 +386,8 @@ a spec bug, not an agent bug."
 "Each layer makes the next layer faster. The spec is cheap, the
 infrastructure is cheap, and the velocity compounds."
 
+"The IDE is for code. When code is a side effect, you don't need one."
+
 "It's turtles all the way down."
 
 ## What's Next
@@ -384,7 +395,6 @@ infrastructure is cheap, and the velocity compounds."
 1. Execute author-spec skill (spec updated with SKILL.md rename fix,
    plan stale — needs fresh session and new plan)
 2. Merge all PRs (specmcp, skillmcp, brandmcp)
-3. Continue book chapters (the book supports the job search, the job
-   search does not wait for the book)
+3. Continue book chapters
 4. Future: create SDD masterclass from provenance files, specs, and
    skills — after a few chapters are down
