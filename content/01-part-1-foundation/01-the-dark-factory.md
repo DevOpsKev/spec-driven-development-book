@@ -16,23 +16,23 @@ The Dark Factory is the future. Almost nobody operates there yet. Most companies
 
 ## The Five Levels
 
-Dan Shapiro published a framework in 2025 that I have found more diagnostically useful than anything else in the discourse. He calls it the Five Levels of Vibe Coding.
+Dan Shapiro, CEO of Glowforge, published a framework in January 2026 that I have found more diagnostically useful than anything else in the discourse. He calls it the Five Levels of Vibe Coding, modelled on the NHTSA's five levels of driving automation.
 
-**Level 0 — Spicy Autocomplete.** AI suggests the next line. You accept or reject. A faster tab key.
+**Level 0 — Spicy Autocomplete.** Not a character hits the disk without your approval. You might use AI as a search engine on steroids, but the code is unmistakably yours.
 
-**Level 1 — Coding Intern.** You assign discrete tasks and review everything.
+**Level 1 — Coding Intern.** You offload discrete tasks — "write a unit test for this," "add a docstring" — but your job is unchanged. You are still moving at the rate you type.
 
-**Level 2 — Junior Developer.** AI handles multi-file changes, navigates the codebase, builds features spanning modules. You still read all the code. Shapiro estimates 90% of self-described "AI-native" developers are here.
+**Level 2 — Autopilot on the Highway.** You are pairing with the AI. You get into a flow state. You are more productive than you have ever been. Shapiro estimates 90% of self-described "AI-native" developers are here. And here is the danger: Level 2, and every level after it, feels like you are done. You are not done.
 
-**Level 3 — Developer as Product Owner.** The relationship flips. You direct the AI and review at the pull request level. You evaluate whether the feature works, not how it was implemented.
+**Level 3 — The Manager.** You are the human in the loop. Your coding agent is always running. You spend your days reviewing code. So much code. Your life is diffs. For many people, this feels like things got worse. Almost everyone tops out here.
 
-**Level 4 — Developer as Architect.** Write a spec, leave, come back hours later, check whether the tests pass. You are not reading the code. You are evaluating outcomes.
+**Level 4 — The PM.** You write a spec. You argue with the AI about the spec. You plan schedules. You review plans. Then you leave for twelve hours and check to see if the tests pass. Shapiro puts himself here.
 
-**Level 5 — The Dark Factory.** A system that turns specifications into working software autonomously. No human writes the code. No human reviews it. Almost nobody operates here. Yet.
+**Level 5 — The Dark Factory.** A black box that turns specs into software. Named after the Fanuc robot factory — dark because humans are neither needed nor welcome. A handful of people on the planet operate here.
 
 The diagnostic value is not in the levels themselves. It is in the gap between where teams believe they are and where they actually are. In every engagement I have run in the past year, teams self-assess at least one level higher than their practice. They think Level 3. They are Level 2. That gap is itself diagnostic: if you cannot accurately measure your own AI maturity, you cannot plan where you are going.
 
-The ceiling at Level 3 is not technical. The models are capable of more. The ceiling is psychological — letting go of the code. If you have spent two decades building your career on the quality of your code, on your ability to read a function and spot the bug, then not reading the code feels like negligence. It is not. But it feels like it, and that feeling is where most teams stall.
+The ceiling at Level 3 is not technical. The models are capable of more. The ceiling is psychological. At Level 3, your life is code review — reading diffs all day. To reach Level 4, you have to stop reading the code entirely and trust the specification and the evaluation instead. If you have spent two decades building your career on your ability to read a function and spot the bug, that shift feels like negligence. It is not. But it feels like it, and that feeling is where most teams stall.
 
 ## Proof the Future Exists
 
